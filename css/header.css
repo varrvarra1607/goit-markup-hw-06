@@ -2,7 +2,14 @@
     border-bottom: 1px solid #e7e9fc;
 }
 
+.header-container {
+    display: flex;
+    align-items: center;
+}
+
 .logo {
+    display: block;
+    padding: 16px 0;
     font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -16,15 +23,8 @@
     color: #4d5ae5;
 }
 
-.header-container {
-    display: flex;
-    align-items: center;
-}
-
 .navigation {
-    display: flex;
-    align-items: center;
-    margin-left: 76px;
+    display: none;
 }
 
 .nav-list {
@@ -46,27 +46,6 @@
     color: #404bbf;
 }
 
-.contacts {
-    font-style: normal;
-    margin-left: auto;
-}
-
-.contacts-list {
-    display: flex;
-    gap: 40px;
-}
-
-.contact-link {
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    color: #434455;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.contact-link:hover,
-.contact-link:focus {
-    color: #404bbf;
-}
 .current {
     position: relative;
     color: #404bbf;
@@ -76,26 +55,86 @@
     content: "";
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -1px;
     width: 100%;
     height: 4px;
     border-radius: 2px;
     background-color: #404bbf;
 }
+
+.contacts {
+    display: none;
+    font-style: normal;
+    margin-left: auto;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-link {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #434455;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-link:hover,
+.contact-link:focus {
+    color: #404bbf;
+}
+
 .menu-open-btn {
     padding: 0;
     margin-left: auto;
+
     background-color: transparent;
     border: none;
+
     cursor: pointer;
 }
 
 .menu-open-btn svg {
     fill: #2f2f37;
 }
-@media screen and (max-width: 767px) {
-    .navigation,
-    .contacts {
+
+@media screen and (min-width: 768px) {
+    .logo {
+        padding: 24px 0;
+    }
+
+    .menu-open-btn {
         display: none;
+    }
+
+    .navigation {
+        display: flex;
+        align-items: center;
+        margin-left: 120px;
+    }
+
+    .contacts {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .navigation {
+        margin-left: 76px;
+    }
+
+    .contacts-list {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .contact-link {
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
     }
 }
